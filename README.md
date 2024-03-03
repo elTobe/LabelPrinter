@@ -41,6 +41,10 @@ Este proyecto se ofrece como un recurso abierto para la comunidad, destinado a s
 
 Valoramos y apoyamos la creatividad y la innovación en la adaptación de este código a diferentes contextos empresariales. Si decides hacer ajustes o mejoras, te sugerimos hacer un fork del repositorio y trabajar en tu propia versión del código.
 
+## Contacto y Dudas
+
+Si tienes alguna pregunta o duda sobre SimpleCashier, no dudes en ponerte en contacto enviando un correo electrónico a perrusquia832@gmail.com.
+
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT.
