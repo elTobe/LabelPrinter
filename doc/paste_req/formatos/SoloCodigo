@@ -1,0 +1,6 @@
+# Parametros disponibles : codigo_barras, descripcion1, descripcion2, codigo_texto, clave_alterna, logo, precio, rect
+# La etiqueta mide 400*200 y no es necesario considerar los bordes, es decir, 0,0 si se verá en la etiqueta, al igual que 400,200
+# el formato es ----------------->   parametro : x,y,ancho,alto;
+# donde x,y es la coordenada de la esquina izquierda superior, del rectangulo ancho x alto a ocupar por el parametro
+
+codigo_barras : 0,10,400,180;
