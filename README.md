@@ -27,13 +27,13 @@ LabelPrinter es una aplicación diseñada para imprimir etiquetas para productos
 1. Clona este repositorio en tu máquina local.
 2. Realiza la instalación de Qt 5.15.2 y MySQL en tu sistema.
 3. Compila el proyecto abriendo el archivo `.pro` y ejecutándolo.
-4. Si no deseas compilar desde el código fuente, ejecuta `windeployqt` en el archivo `LabelPrinter.exe` ubicado en la ruta `doc/bin/` del repositorio.
+4. Si no deseas compilar desde el código fuente, ejecuta `windeployqt` en el archivo `Etiquetas.exe` ubicado en la ruta `doc/bin/` del repositorio.
 5. Instala MinGW 8.1.0 en tu sistema.
 6. Modifica el archivo `ip_server.txt` para configurar la IP del servidor donde se encuentra la base de datos de SICAR. Además, asegúrate de ingresar el usuario y la contraseña de SQL con permisos de consulta.
 
 ## Uso
 
-Una vez instalado y configurado, ejecuta `LabelPrinter.exe` para abrir la aplicación.
+Una vez instalado y configurado, ejecuta `Etiquetas.exe` para abrir la aplicación.
 
 ## Contribuciones y Uso del Codigo
 
