@@ -43,7 +43,7 @@ Valoramos y apoyamos la creatividad y la innovación en la adaptación de este c
 
 ## Contacto y Dudas
 
-Si tienes alguna pregunta o duda sobre SimpleCashier, no dudes en ponerte en contacto enviando un correo electrónico a perrusquia832@gmail.com.
+Si tienes alguna pregunta o duda sobre este proyecto, no dudes en ponerte en contacto enviando un correo electrónico a perrusquia832@gmail.com.
 
 ## Licencia
 
