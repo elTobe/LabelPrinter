@@ -1,7 +1,5 @@
 # LabelPrinter
 
-![LabelPrinter](doc/img/screenshot1.PNG)
-
 LabelPrinter es una aplicación diseñada para imprimir etiquetas para productos con código de barras codificado en Code128. La aplicación permite:
 
 - Crear múltiples formatos de etiquetas personalizadas, que incluyen:
@@ -14,6 +12,8 @@ LabelPrinter es una aplicación diseñada para imprimir etiquetas para productos
 - Conexión con un usuario de consulta a SICAR para obtener información actualizada de los productos.
 - Impresión de etiquetas en impresoras térmicas de etiquetas de tamaño 25mmx50mm.
 - Búsqueda por clave directa en la base de datos de productos de SICAR.
+
+![LabelPrinter](doc/img/screenshot1.PNG)
 
 ## Requisitos
 
