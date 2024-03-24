@@ -85,7 +85,8 @@ void Etiquetas::update_previa(){
     }
 
     QSqlQuery consulta;
-    consulta.exec("SELECT clave,claveAlterna,descripcion,precio1 FROM articulo WHERE clave=\"" + clave_actual + "\" OR claveAlterna=\"" + clave_actual + "\"");
+    consulta.exec("SELECT clave,claveAlterna,descripcion,precio1,impuesto FROM articulo a LEFT JOIN articuloimpuesto ai ON a.art_id=ai.art_id LEFT JOIN impuesto i ON i.imp_id=ai.imp_id WHERE clave=\"" + clave_actual + "\" OR claveAlterna=\"" + clave_actual + "\" AND a.status!=-1");
+    qDebug() << consulta.lastError().text();
     qDebug() << "Actualizando para : " + clave_actual;
 
     QPixmap imagen(ancho, alto);
@@ -256,7 +257,9 @@ void Etiquetas::update_previa(){
                     ps.setNum(precio, 'f', 2);
                     documento.drawText( QRect(r[param_x],r[param_y],r[param_ancho],r[param_alto]), Qt::AlignHCenter ,"$ "+ ps);
                 }else{
-                    float precio = consulta.value("precio1").toFloat();
+                    float impuesto = 1;
+                    if( !consulta.value("impuesto").toString().isEmpty() ){ impuesto = impuesto + consulta.value("impuesto").toFloat()/100.0; }
+                    float precio = consulta.value("precio1").toFloat() * impuesto;
                     QString ps;
                     ps.setNum(precio, 'f', 2);
                     documento.drawText( QRect(r[param_x],r[param_y],r[param_ancho],r[param_alto]), Qt::AlignHCenter,"$ "+ ps);
@@ -336,12 +339,12 @@ void Etiquetas::on_input_descripcion_returnPressed()
             return;
         }
 
-        QString select = "SELECT clave,claveAlterna,descripcion,precio1 FROM articulo WHERE ";
+        QString select = "SELECT clave,claveAlterna,descripcion,precio1,impuesto FROM articulo a LEFT JOIN articuloimpuesto ai ON a.art_id=ai.art_id LEFT JOIN impuesto i ON i.imp_id=ai.imp_id WHERE ";
         select += "(descripcion LIKE \"%" + palabras.at(0) + "%\" OR clave LIKE \"%" + palabras.at(0) + "%\" OR claveAlterna LIKE \"%" + palabras.at(0) + "%\") ";
         for( int i = 1; i < palabras.length(); i++){
             select += "AND (descripcion LIKE \"%" + palabras.at(i) + "%\" OR clave LIKE \"%" + palabras.at(i) + "%\" OR claveAlterna LIKE \"%" + palabras.at(i) + "%\") ";
         }
-        select += "AND status=1 ORDER BY art_id DESC";
+        select += "AND a.status=1 ORDER BY a.art_id DESC";
         QSqlQuery consulta;
         consulta.exec(select);
         while(consulta.next()){
@@ -349,7 +352,14 @@ void Etiquetas::on_input_descripcion_returnPressed()
             item << consulta.value("clave").toString();
             item << consulta.value("claveAlterna").toString();
             item << consulta.value("descripcion").toString();
-            item << consulta.value("precio1").toString();
+
+            float impuesto = 1;
+            if( !consulta.value("impuesto").toString().isEmpty() ){ impuesto = impuesto + consulta.value("impuesto").toFloat()/100.0; }
+            float precio1_float = consulta.value("precio1").toFloat() * impuesto;
+            QString precio1;
+            precio1 = precio1.setNum(precio1_float,'f',2);
+            item << precio1;
+
             ui->lista->addTopLevelItem(new QTreeWidgetItem( item ));
         }
         qDebug() << "Consulta finalizada";
