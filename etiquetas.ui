@@ -294,6 +294,11 @@
               <layout class="QHBoxLayout" name="horizontalLayout_5">
                <item>
                 <widget class="QCheckBox" name="check_forzar_precio">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>Fijar Precio</string>
                  </property>
@@ -301,6 +306,11 @@
                </item>
                <item>
                 <widget class="QLabel" name="label_3">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>$</string>
                  </property>
@@ -310,21 +320,23 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="input_precio">
+                <widget class="QDoubleSpinBox" name="input_precio">
                  <property name="enabled">
                   <bool>false</bool>
                  </property>
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
                  </property>
-                 <property name="text">
-                  <string>15</string>
+                 <property name="maximum">
+                  <double>100000.000000000000000</double>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 <property name="singleStep">
+                  <double>0.500000000000000</double>
+                 </property>
+                 <property name="value">
+                  <double>15.000000000000000</double>
                  </property>
                 </widget>
                </item>
